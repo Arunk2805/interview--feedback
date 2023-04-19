@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <p4>1. validate the phone number enter by the user  </p4><br><br>
+      <label for="num"> Mobile no : </label>
+      <input
+        type="tel"
+        name="number"
+        id="num"
+        value="number"
+        placeholder="enter number"
+        onkeyup="checkNumber()"
+      />
+      <button type="button" onclick="handleSubmit()" disabled>submit</button><br><br>
+      <p style="display: none; color: red" >please enter 10 digit number !</p>
+
+      <p2> 2. calculate all arthematic operation in single function</p2><br><br>
+      <p3>3. difference between SASS VS LESS</p3>
+    </form>
+    <script>
+      const checkNumber = () => {
+        let number = document.getElementById("num").value;
+        if (number.length < 10) {
+          // console.log("enter total 10 digits ")
+          document.querySelector("p").style.display = "block";
+        } else if(number.length === 10) {
+          document.querySelector("p").style.display = "none";
+
+          document.querySelector("button").removeAttribute("disabled");
+        }else{
+          document.querySelector("p").style.display = "block";
+
+        }
+      };
+      const handleSubmit = () => {
+        let mobile_number = document.getElementById("num").value;
+        console.log(" the number is : ",mobile_number);
+      };
+      // what is the difference between sass vs less
+
+      // calculate addition ,subtraction , multiplication, division in one function call
+      const calculate = (operation, num1, num2) => {
+        let result;
+        switch (operation) {
+          case "addition" :
+            result = num1 + num2;
+            break;
+          case "subtraction" :
+            result = num1 - num2;
+            break;
+          case "multipy" :
+            result = num1 * num2;
+            break;
+          case "division":
+            result = num1 / num2;
+            break;
+          default:
+            result = "invalid operation !";
+
+          }
+          return result
+      };
+      console.log("addition ",calculate("addition", 2,5))
+      // console.log("subtraction ",calculate("subtraction", 2,5))
+      // console.log("division",calculate("division", 2,5))
+      // console.log("multiplication",calculate("multipy", 2,5))
+      // console.log("error invalid input",calculate("divisions", 2,5))
+    </script>
+  </body>
+</html>
